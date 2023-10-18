@@ -1,10 +1,10 @@
 import queue
 from typing import Optional
-import sounddevice as sd
 import numpy as np
 
 from .base_output_device import BaseOutputDevice
 from vocode.streaming.models.audio_encoding import AudioEncoding
+
 
 class SpeakerOutput(BaseOutputDevice):
     DEFAULT_SAMPLING_RATE = 44100
@@ -21,7 +21,7 @@ class SpeakerOutput(BaseOutputDevice):
             self.device_info.get("default_samplerate", self.DEFAULT_SAMPLING_RATE)
         )
         import sounddevice as sd
-
+        
         super().__init__(sampling_rate, audio_encoding)
         self.blocksize = blocksize or self.sampling_rate
         self.stream = sd.OutputStream(
