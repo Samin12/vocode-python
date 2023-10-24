@@ -58,7 +58,7 @@ class PlayHtSynthesizer(BaseSynthesizer[PlayHtSynthesizerConfig]):
             "text": message.text,
             "sample_rate": self.synthesizer_config.sampling_rate,
             "voice_engine": "PlayHT2.0-turbo",
-            "output_format": "mulaw",
+            "output_format": "mp3",
         }
         if self.synthesizer_config.speed:
             body["speed"] = self.synthesizer_config.speed
